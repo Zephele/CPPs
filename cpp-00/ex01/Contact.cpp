@@ -6,7 +6,7 @@
 /*   By: ratanaka <ratanaka@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/07 16:39:55 by ratanaka          #+#    #+#             */
-/*   Updated: 2025/11/12 17:11:36 by ratanaka         ###   ########.fr       */
+/*   Updated: 2025/11/14 17:48:35 by ratanaka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,5 +49,13 @@ void Contact::PrintContact(int i) const{
 	std::cout << "|" << FormatField(this->_FirstName);
 	std::cout << "|" << FormatField(this->_LastName);
 	std::cout << "|" << FormatField(this->_NickName) << "|" << std::endl;
-	std::cout << "#==========|==========|==========|==========#" << std::endl;
+	std::cout << "#===========================================#" << std::endl;
+}
+
+void Contact::PrintContactIndex() const{
+	std::cout << "First Name: " << this->_FirstName << std::endl;
+	std::cout << "Last Name: " << this->_LastName << std::endl;
+	std::cout << "Nickname: " << this->_NickName << std::endl;
+	std::cout << "Phone Number: " << this->_PhoneNumber << std::endl;
+	std::cout << "Darkest Secret: " << this->_DarkestSecret << std::endl;
 }

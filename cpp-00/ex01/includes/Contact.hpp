@@ -6,7 +6,7 @@
 /*   By: ratanaka <ratanaka@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/07 16:39:59 by ratanaka          #+#    #+#             */
-/*   Updated: 2025/11/11 14:22:33 by ratanaka         ###   ########.fr       */
+/*   Updated: 2025/11/14 17:24:56 by ratanaka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ class	Contact {
 		// ~Contact(void);
 		void	PrintIndex(void) const;
 		void	PrintContact(int i) const;
+		void	PrintContactIndex() const;
 };
 
 #endif

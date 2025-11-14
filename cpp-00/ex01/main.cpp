@@ -6,7 +6,7 @@
 /*   By: ratanaka <ratanaka@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/10 14:50:14 by ratanaka          #+#    #+#             */
-/*   Updated: 2025/11/13 10:39:27 by ratanaka         ###   ########.fr       */
+/*   Updated: 2025/11/14 17:35:03 by ratanaka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ static void	print_menu(void){
 	std::cout << "What you want to do? : ";
 }
 
-static std::string	trim(const std::string &s) {
+static std::string	Trim(const std::string &s) {
 	size_t	start = 0;
 	while (start < s.size() && std::isspace(s[start]))
 		++start;
@@ -36,12 +36,12 @@ static std::string	trim(const std::string &s) {
 	return (s.substr(start, end - start));
 }
 
-static bool readNonEmpty(std::string &out, const std::string &prompt) {
+static bool ReadNonEmpty(std::string &out, const std::string &prompt) {
 	for (;;) {
 		std::cout << prompt;
 		if (!std::getline(std::cin, out))
 			return false;
-		if (!trim(out).empty())
+		if (!Trim(out).empty())
 			return true;
 		std::cout << "Empty input. Please try again.\n";
 	}
@@ -60,15 +60,20 @@ int	main()
 		}
 		if (input == "ADD"){
 			std::string fn, ln, nn, pn, ds;
-			if (!readNonEmpty(fn, "Please, type the First Name: ")) break;
-			if (!readNonEmpty(ln, "Please, type the Last Name: ")) break;
-			if (!readNonEmpty(nn, "Please, type the Nickname: ")) break;
-			if (!readNonEmpty(pn, "Please, type the Phone Number: ")) break;
-			if (!readNonEmpty(ds, "Please, type the Darkest Secret: ")) break;
+			if (!ReadNonEmpty(fn, "Please, type the First Name: ")) break;
+			if (!ReadNonEmpty(ln, "Please, type the Last Name: ")) break;
+			if (!ReadNonEmpty(nn, "Please, type the Nickname: ")) break;
+			if (!ReadNonEmpty(pn, "Please, type the Phone Number: ")) break;
+			if (!ReadNonEmpty(ds, "Please, type the Darkest Secret: ")) break;
 
-			phonebook.Add(Contact(trim(fn), trim(ln), trim(nn), trim(pn), trim(ds)));
+			phonebook.Add(Contact(Trim(fn), Trim(ln), Trim(nn), Trim(pn), Trim(ds)));
 		}
-		else if (input == "SEARCH"){phonebook.PrintAll();}
+		else if (input == "SEARCH"){
+			phonebook.PrintAll();
+			std::string index;
+			std::getline(std::cin, index);
+			phonebook.IndexPrint(index);
+		}
 		else if (input == "EXIT"){break;}
 		else
 			std::cout << "Undefinied Command, Try again" << std::endl;
