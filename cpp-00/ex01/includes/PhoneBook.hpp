@@ -6,7 +6,7 @@
 /*   By: ratanaka <ratanaka@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/11 12:31:33 by ratanaka          #+#    #+#             */
-/*   Updated: 2025/11/14 17:20:16 by ratanaka         ###   ########.fr       */
+/*   Updated: 2025/11/17 12:58:51 by ratanaka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ class	PhoneBook{
 		PhoneBook(void);
 		void	Add(const Contact &c);
 		void	PrintAll() const;
-		void	IndexPrint(const std::string &index) const;
+		void	IndexPrint(const std::string &index, int size) const;
 		int		GetSize();
 };
 

@@ -6,7 +6,7 @@
 /*   By: ratanaka <ratanaka@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/10 14:50:14 by ratanaka          #+#    #+#             */
-/*   Updated: 2025/11/14 17:35:03 by ratanaka         ###   ########.fr       */
+/*   Updated: 2025/11/17 13:04:30 by ratanaka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,7 @@ int	main()
 			phonebook.PrintAll();
 			std::string index;
 			std::getline(std::cin, index);
-			phonebook.IndexPrint(index);
+			phonebook.IndexPrint(index, phonebook.GetSize());
 		}
 		else if (input == "EXIT"){break;}
 		else

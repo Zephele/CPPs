@@ -6,7 +6,7 @@
 /*   By: ratanaka <ratanaka@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/10 14:46:59 by ratanaka          #+#    #+#             */
-/*   Updated: 2025/11/14 18:08:37 by ratanaka         ###   ########.fr       */
+/*   Updated: 2025/11/17 13:04:03 by ratanaka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,23 +28,23 @@ void PhoneBook::PrintAll() const {
 	std::cout << "\nType the index: ";
 }
 
-void	PhoneBook::IndexPrint(const std::string &index) const{
+void	PhoneBook::IndexPrint(const std::string &index, int size) const{
 	std::cout << "\n";
-	if (index == "1")
+	if (index == "1" && size >= 1)
 		contacts[0].PrintContactIndex();
-	else if (index == "2")
+	else if (index == "2" && size >= 2)
 		contacts[1].PrintContactIndex();
-	else if (index == "3")
+	else if (index == "3" && size >= 3)
 		contacts[2].PrintContactIndex();
-	else if (index == "4")
+	else if (index == "4" && size >= 4)
 		contacts[3].PrintContactIndex();
-	else if (index == "5")
+	else if (index == "5" && size >= 5)
 		contacts[4].PrintContactIndex();
-	else if (index == "6")
+	else if (index == "6" && size >= 6)
 		contacts[5].PrintContactIndex();
-	else if (index == "7")
+	else if (index == "7" && size >= 7)
 		contacts[6].PrintContactIndex();
-	else if (index == "8")
+	else if (index == "8" && size >= 8)
 		contacts[7].PrintContactIndex();
 	else
 		std::cout << "There's no contact in this Index or its a invalid index";
