@@ -30,6 +30,7 @@ void PhoneBook::PrintAll() const {
 
 void	PhoneBook::IndexPrint(const std::string &index, int size) const{
 	std::cout << "\n";
+
 	if (index == "1" && size >= 1)
 		contacts[0].PrintContactIndex();
 	else if (index == "2" && size >= 2)
