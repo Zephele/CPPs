@@ -5,24 +5,25 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ratanaka <ratanaka@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/02/03 17:06:18 by ratanaka          #+#    #+#             */
-/*   Updated: 2026/02/04 14:00:42 by ratanaka         ###   ########.fr       */
+/*   Created: 2026/02/04 13:47:46 by ratanaka          #+#    #+#             */
+/*   Updated: 2026/02/04 14:00:26 by ratanaka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#include <iostream>
+#include <string>
 
-int main()
-{
+int main(){
+    std::string str = "HI THIS IS BRAIN";
+    std::string *stringPTR = &str;
+    std::string &stringREF = str;
+
+    std::cout << &str << std::endl;
+    std::cout << stringPTR << std::endl;
+    std::cout << &stringREF << std::endl;
     std::cout << std::endl;
-    Zombie *zombie;
-    zombie = newZombie("Carlos");
-    zombie->announce();
-    delete zombie;
-    std::cout << std::endl;
-    
-    std::cout << std::endl;
-    randomChump("Isaac");
-    std::cout << std::endl;
+    std::cout << str << std::endl;
+    std::cout << *stringPTR << std::endl;
+    std::cout << stringREF << std::endl;
     return (0);
 }

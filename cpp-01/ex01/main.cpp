@@ -6,7 +6,7 @@
 /*   By: ratanaka <ratanaka@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/04 12:47:31 by ratanaka          #+#    #+#             */
-/*   Updated: 2026/02/04 13:34:15 by ratanaka         ###   ########.fr       */
+/*   Updated: 2026/02/04 14:00:37 by ratanaka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,4 +20,5 @@ int main(){
         zombies[i].announce();
     }
     delete[] zombies;
+    return (0);
 }
