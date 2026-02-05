@@ -1,6 +1,6 @@
 NAME	= brain
 SRCS	= main.cpp
-CC		= c++
+CC		= g++
 CFLAGS	= -std=c++98 -Wall -Werror -Wextra
 RM		= rm -f
 

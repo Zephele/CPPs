@@ -1,5 +1,5 @@
-NAME = fight
-SRCS = main.cpp Weapon.cpp HumanA.cpp HumanB.cpp
+NAME = harl
+SRCS = Harl.cpp main.cpp
 CC = g++
 CFLAGS = -std=c++98 -Wall -Wextra -Werror
 RM = rm -f
@@ -7,13 +7,13 @@ RM = rm -f
 all: $(NAME)
 
 $(NAME) : $(SRCS)
-		$(CC) $(CFLAGS) $(SRCS) -o $(NAME)
+	$(CC) $(CFLAGS) $(SRCS) -o $(NAME)
 
 clean:
-		${RM} *.o
+	$(RM) *.o
 
 fclean: clean
-		${RM} ${NAME}
+	$(RM) $(NAME)
 
 re: fclean all
 
