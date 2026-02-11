@@ -1,6 +1,6 @@
 NAME = harl
 SRCS = Harl.cpp main.cpp
-CC = g++
+CC = c++
 CFLAGS = -std=c++98 -Wall -Wextra -Werror
 RM = rm -f
 

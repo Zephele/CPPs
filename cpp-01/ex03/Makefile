@@ -1,6 +1,6 @@
 NAME = fight
 SRCS = main.cpp Weapon.cpp HumanA.cpp HumanB.cpp
-CC = g++
+CC = c++
 CFLAGS = -std=c++98 -Wall -Wextra -Werror
 RM = rm -f
 

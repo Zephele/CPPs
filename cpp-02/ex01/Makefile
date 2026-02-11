@@ -1,13 +1,13 @@
-NAME = sed
-SRCS = main.cpp
+NAME = fixed
+SRCS = Fixed.cpp main.cpp
 CC = c++
-CFLAGS = -std=c++98 -Wall -Werror -Wextra
+CFLAGS = -std=c++98 -Wall -Wextra -Werror
 RM = rm -f
 
 all: $(NAME)
 
 $(NAME) : $(SRCS)
-		$(CC) $(CFLAGS) $(SRCS) -o $(NAME)
+	$(CC) $(CFLAGS) $(SRCS) -o $(NAME)
 
 clean:
 		${RM} *.o
