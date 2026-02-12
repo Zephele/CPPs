@@ -6,7 +6,7 @@
 /*   By: ratanaka <ratanaka@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/11 10:30:18 by ratanaka          #+#    #+#             */
-/*   Updated: 2026/02/12 13:48:31 by ratanaka         ###   ########.fr       */
+/*   Updated: 2026/02/12 14:00:09 by ratanaka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,6 @@ std::ostream& operator<<(std::ostream& output, const Fixed& clas){
 }
 
 Fixed&	Fixed::operator=(const Fixed& clas){
-	std::cout << "Copy assignment operator called" << std::endl;
 	if (this != &clas)
 		fix_point = clas.getRawBits();
 	return *this;
