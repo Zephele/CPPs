@@ -6,14 +6,14 @@
 /*   By: ratanaka <ratanaka@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/12 16:09:50 by ratanaka          #+#    #+#             */
-/*   Updated: 2026/02/20 11:18:53 by ratanaka         ###   ########.fr       */
+/*   Updated: 2026/02/20 13:37:30 by ratanaka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ScavTrap.hpp"
 
 int main(void) {
-	ScavTrap bot("Wall-e");
+	ScavTrap bot("Jimmy Neutron");
 	
 	std::cout << std::endl;	
 	bot.guardGate();
@@ -21,7 +21,7 @@ int main(void) {
 	
 	std::cout << "ATACK" << std::endl;
 	for (int i = 0; i <= 2; i++)
-	bot.attack("Robocop");
+	bot.attack("SpongeBob");
 	std::cout << std::endl;
 	
 	std::cout << "DEFENSE" << std::endl;

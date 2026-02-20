@@ -14,15 +14,15 @@
 
 	// Constructor
 ClapTrap::ClapTrap() : name(""), hP(10), eP(10), aD(0) {
-	std::cout << "Default constructor called" << std::endl;
+	std::cout << "ClapTrap default constructor called" << std::endl;
 }
 
 ClapTrap::ClapTrap(std::string name) : name(name), hP(10), eP(10), aD(0) {
-	std::cout << "Constructor called for " << name << std::endl;
+	std::cout << "ClapTrap constructor called for " << name << std::endl;
 }
 
 ClapTrap::ClapTrap(const ClapTrap& other) : name(other.name), hP(other.hP), eP(other.eP), aD(other.aD) {
-	std::cout << "Copy constructor called" << std::endl;
+	std::cout << "ClapTrap copy constructor called" << std::endl;
 }
 
 ClapTrap& ClapTrap::operator=(const ClapTrap& other){
@@ -32,14 +32,14 @@ ClapTrap& ClapTrap::operator=(const ClapTrap& other){
 		this->hP = other.hP;
 		this->eP = other.eP;
 		this->aD = other.aD;
-		std::cout << "Copy assignment operator called" << std::endl;
+		std::cout << "ClapTrap copy assignment operator called" << std::endl;
 	}
 	return *this;
 }
 
 	// Destructor
 ClapTrap::~ClapTrap(){
-	std::cout << "Destructor called" << std::endl;
+	std::cout << "ClapTrap destructor called" << std::endl;
 }
 
 	// Moviments
