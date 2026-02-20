@@ -1,27 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   ScavTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ratanaka <ratanaka@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/02/12 16:09:50 by ratanaka          #+#    #+#             */
-/*   Updated: 2026/02/19 09:29:15 by ratanaka         ###   ########.fr       */
+/*   Created: 2026/02/19 10:59:46 by ratanaka          #+#    #+#             */
+/*   Updated: 2026/02/20 11:14:17 by ratanaka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ClapTrap.hpp"
+#ifndef SCAVTRAP_HPP
+# define SCAVTRAP_HPP
 
-int	main(){
-	
-	ClapTrap a("Shrek");
-	ClapTrap b("Burro");
+# include "ClapTrap.hpp"
 
-	a.attack("Burro");
-	a.takeDamage(1);
-	a.beRepaired(1);
+class ScavTrap : public ClapTrap
+{
+	public:
+		ScavTrap();
+		ScavTrap(std::string name);
+		ScavTrap(const ScavTrap& other);
+		ScavTrap& operator=(const ScavTrap& other);
+		~ScavTrap();
 
-	b.attack("Burro");
-	b.takeDamage(1);
-	b.beRepaired(1);
-}
+		void attack(const std::string& target);
+		void guardGate();
+};
+
+#endif

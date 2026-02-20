@@ -6,22 +6,33 @@
 /*   By: ratanaka <ratanaka@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/12 16:09:50 by ratanaka          #+#    #+#             */
-/*   Updated: 2026/02/19 09:29:15 by ratanaka         ###   ########.fr       */
+/*   Updated: 2026/02/20 11:18:53 by ratanaka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ClapTrap.hpp"
+#include "ScavTrap.hpp"
 
-int	main(){
+int main(void) {
+	ScavTrap bot("Wall-e");
 	
-	ClapTrap a("Shrek");
-	ClapTrap b("Burro");
+	std::cout << std::endl;	
+	bot.guardGate();
+	std::cout << std::endl;
+	
+	std::cout << "ATACK" << std::endl;
+	for (int i = 0; i <= 2; i++)
+	bot.attack("Robocop");
+	std::cout << std::endl;
+	
+	std::cout << "DEFENSE" << std::endl;
+	for (int i = 0; i <= 2; i++)
+	bot.takeDamage(10);
+	std::cout << std::endl;
 
-	a.attack("Burro");
-	a.takeDamage(1);
-	a.beRepaired(1);
-
-	b.attack("Burro");
-	b.takeDamage(1);
-	b.beRepaired(1);
+	std::cout << "REPAIR" << std::endl;
+	for (int i = 0; i <= 2; i++)
+			bot.beRepaired(20);
+	std::cout << std::endl;
+	
+	return (0);
 }

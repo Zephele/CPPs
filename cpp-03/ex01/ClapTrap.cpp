@@ -6,7 +6,7 @@
 /*   By: ratanaka <ratanaka@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/12 16:09:45 by ratanaka          #+#    #+#             */
-/*   Updated: 2026/02/19 09:08:57 by ratanaka         ###   ########.fr       */
+/*   Updated: 2026/02/20 11:17:14 by ratanaka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,7 @@ ClapTrap::ClapTrap(const ClapTrap& other) : name(other.name), hP(other.hP), eP(o
 }
 
 ClapTrap& ClapTrap::operator=(const ClapTrap& other){
-	if (this != &other)
-	{
+	if (this != &other){
 		this->name = other.name;
 		this->hP = other.hP;
 		this->eP = other.eP;
@@ -44,13 +43,11 @@ ClapTrap::~ClapTrap(){
 
 	// Moviments
 void ClapTrap::attack(const std::string& target){
-	if (this->hP == 0)
-	{
+	if (this->hP == 0){
 		std::cout << "ClapTrap " << this->name << " is dead and can't attack!" << std::endl;
 		return;
 	}
-	if (this->eP == 0)
-	{
+	if (this->eP == 0){
 		std::cout << "ClapTrap " << this->name << " has no energy to attack!" << std::endl;
 		return;
 	}
@@ -59,13 +56,11 @@ void ClapTrap::attack(const std::string& target){
 }
 
 void ClapTrap::takeDamage(unsigned int amount){
-	if (this->hP == 0)
-	{
+	if (this->hP == 0){
 		std::cout << "ClapTrap " << this->name << " is already dead!" << std::endl;
 		return;
 	}
-	if (amount >= (unsigned int)this->hP)
-	{
+	if (amount >= (unsigned int)this->hP){
 		this->hP = 0;
 		std::cout << "ClapTrap " << this->name << " takes " << amount << " points of damage and dies!" << std::endl;
 	}
@@ -77,13 +72,11 @@ void ClapTrap::takeDamage(unsigned int amount){
 }
 
 void ClapTrap::beRepaired(unsigned int amount){
-	if (this->hP == 0)
-	{
+	if (this->hP == 0){
 		std::cout << "ClapTrap " << this->name << " is dead and can't be repaired!" << std::endl;
 		return;
 	}
-	if (this->eP == 0)
-	{
+	if (this->eP == 0){
 		std::cout << "ClapTrap " << this->name << " has no energy to repair!" << std::endl;
 		return;
 	}

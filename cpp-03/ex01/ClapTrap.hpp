@@ -6,7 +6,7 @@
 /*   By: ratanaka <ratanaka@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/12 16:09:47 by ratanaka          #+#    #+#             */
-/*   Updated: 2026/02/19 08:52:52 by ratanaka         ###   ########.fr       */
+/*   Updated: 2026/02/19 13:07:08 by ratanaka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 # include <iostream>
 
 class ClapTrap{
-	private:
+	protected:
 		std::string	name;
 		int	hP;
 		int	eP;
