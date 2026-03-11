@@ -6,7 +6,7 @@
 /*   By: ratanaka <ratanaka@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/20 15:21:50 by ratanaka          #+#    #+#             */
-/*   Updated: 2026/03/02 16:14:13 by ratanaka         ###   ########.fr       */
+/*   Updated: 2026/03/09 13:40:50 by ratanaka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,22 +14,27 @@
 
 Cat::Cat() : Animal("Cat"){
 	std::cout << "Cat default constructor called!" << std::endl;
+	catBrain = new Brain;
 }
 
 Cat::Cat(const Cat& other) : Animal(other){
-	std::cout << "Copy constructor Cat called!" << std::endl;
+	std::cout << "Cat copy constructor called!" << std::endl;
+	catBrain = new Brain(*other.catBrain);
 }
 
 Cat& Cat::operator=(const Cat& other){
 	if (this != &other){
-		Animal::operator=(other);
-		std::cout << "Copy assignment operator Cat called" << std::endl;
+		std::cout << "Cat copy assignment operator called" << std::endl;
+		delete catBrain;
+		catBrain = new Brain(*other.catBrain);
+		type = other.type;
 	}
 	return *this;
 }
 
 Cat::~Cat(){
 	std::cout << "Cat destructor called!" << std::endl;
+	delete catBrain;
 }
 
 std::string	Cat::getType() const{
@@ -38,4 +43,8 @@ std::string	Cat::getType() const{
 
 void	Cat::makeSound() const{
 	std::cout << "Meow!" << std::endl;
+}
+
+Brain* Cat::getBrain() const{
+    return catBrain;
 }
