@@ -6,7 +6,7 @@
 /*   By: ratanaka <ratanaka@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/20 15:21:57 by ratanaka          #+#    #+#             */
-/*   Updated: 2026/03/11 15:37:00 by ratanaka         ###   ########.fr       */
+/*   Updated: 2026/03/11 15:36:47 by ratanaka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,6 +105,7 @@
 int main()
 {
 	const int N = 4;
+	// Animal animal; test
 	Animal* animals[N];
 
 	std::cout << "\033[1;32m\n--- Creating animals array (half Dogs, half Cats) ---\n\033[0m" << std::endl;
@@ -148,6 +149,4 @@ int main()
 	for (int i = 0; i < N; ++i)
 		delete animals[i];
 	std::cout << std::endl;
-
-	return 0;
 }
