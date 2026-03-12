@@ -6,14 +6,13 @@
 /*   By: ratanaka <ratanaka@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/03 17:06:18 by ratanaka          #+#    #+#             */
-/*   Updated: 2026/02/04 14:00:42 by ratanaka         ###   ########.fr       */
+/*   Updated: 2026/03/03 09:37:29 by ratanaka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Zombie.hpp"
 
-int main()
-{
+int main() {
     std::cout << std::endl;
     Zombie *zombie;
     zombie = newZombie("Carlos");

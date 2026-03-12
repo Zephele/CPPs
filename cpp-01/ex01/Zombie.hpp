@@ -6,7 +6,7 @@
 /*   By: ratanaka <ratanaka@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/04 12:47:27 by ratanaka          #+#    #+#             */
-/*   Updated: 2026/02/04 12:57:40 by ratanaka         ###   ########.fr       */
+/*   Updated: 2026/03/03 09:38:06 by ratanaka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,12 @@
 # include <iostream>
 # include <string>
 
-class   Zombie{
+class   Zombie {
     private:
         std::string name;
     public:
+        Zombie(void);
+        Zombie(std::string name);
         void    announce(void);
         void    setName( std::string name );
         ~Zombie(void);

@@ -6,7 +6,7 @@
 /*   By: ratanaka <ratanaka@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/03 16:45:04 by ratanaka          #+#    #+#             */
-/*   Updated: 2025/11/17 14:40:06 by ratanaka         ###   ########.fr       */
+/*   Updated: 2026/03/02 09:18:46 by ratanaka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,14 +21,10 @@ int	main(int argc, char *argv[])
 	}
 	for (int i = 1; i < argc; i++)
 	{
-		int j = 0;
-		while (argv[i][j])
-		{
-			if (argv[i][j] >= 97 && argv[i][j] <= 122)
-				argv[i][j] = std::toupper(argv[i][j]);
-			j++;
-		}
-		std::cout << argv[i];
+		std::string str(argv[i]);
+		for (int j = 0; j < (int)str.length(); j++)
+			str[j] = std::toupper(str[j]);
+		std::cout << str;
 	}
 	std::cout << '\n';
 	return (0);

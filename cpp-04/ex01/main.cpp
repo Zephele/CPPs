@@ -6,7 +6,7 @@
 /*   By: ratanaka <ratanaka@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/20 15:21:57 by ratanaka          #+#    #+#             */
-/*   Updated: 2026/03/11 15:37:00 by ratanaka         ###   ########.fr       */
+/*   Updated: 2026/03/11 15:51:08 by ratanaka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -117,9 +117,9 @@ int main()
 			std::cout << "\033[1;35m\n====================================\033[0m" << std::endl;
 			std::cout << "	Sounds and Ideas:\n" << std::endl;
 			if (i % 2 == 0)
-				dog->getBrain()->setIdea(i, "Querendo fazer amor com a almofada");
+				dog->getBrain()->setIdea(i, "Going for a walk");
 			else
-				dog->getBrain()->setIdea(i, "Querendo Brincar");
+				dog->getBrain()->setIdea(i, "Playing fetch");
 			std::cout << "\033[1;32mDog: \033[0m";
 			dog->makeSound();
 			std::cout << "\033[1;32mDog: \033[0m";
@@ -133,10 +133,9 @@ int main()
 			std::cout << "	Sounds and Ideas:\n" << std::endl;
 			Cat* cat = dynamic_cast<Cat*>(animals[i]);
 			if (i % 2 == 0)
-				cat->getBrain()->setIdea(i, "Querendo derrubar uma caneca");
+				cat->getBrain()->setIdea(i, "Watching birds");
 			else
-				cat->getBrain()->setIdea(i, "Ja derrubou ;-;");
-			cat->getBrain()->setIdea(i, "Querendo Brincar");
+				cat->getBrain()->setIdea(i, "Taking a nap");
 			std::cout << "\033[1;32mCat: \033[0m";
 			cat->makeSound();
 			std::cout << "\033[1;32mCat: \033[0m";
@@ -148,6 +147,32 @@ int main()
 	for (int i = 0; i < N; ++i)
 		delete animals[i];
 	std::cout << std::endl;
+
+	std::cout << "\033[1;32m--- Testing deep copy ---\033[0m" << std::endl;
+	Dog originalDog;
+	originalDog.getBrain()->setIdea(0, "Protect the house");
+	Dog copiedDog(originalDog);
+	std::cout << "\033[1;32m------\033[0m" << std::endl;
+	std::cout << "Original Dog idea: " << originalDog.getBrain()->getIdea(0) << std::endl;
+	std::cout << "Copied Dog idea: " << copiedDog.getBrain()->getIdea(0) << std::endl;
+	std::cout << "\033[1;32m------\033[0m" << std::endl;
+	copiedDog.getBrain()->setIdea(0, "Chase the ball");
+	std::cout << "Original Dog idea: " << originalDog.getBrain()->getIdea(0) << std::endl;
+	std::cout << "Copied Dog idea: " << copiedDog.getBrain()->getIdea(0) << std::endl;
+	std::cout << "\033[1;32m------\033[0m" << std::endl;
+
+	Cat originalCat;
+	originalCat.getBrain()->setIdea(1, "Sleep on the sofa");
+	Cat assignedCat;
+	assignedCat = originalCat;
+	std::cout << "\033[1;32m------\033[0m" << std::endl;
+	std::cout << "Original Cat idea: " << originalCat.getBrain()->getIdea(1) << std::endl;
+	std::cout << "Assigned Cat idea: " << assignedCat.getBrain()->getIdea(1) << std::endl;
+	std::cout << "\033[1;32m------\033[0m" << std::endl;
+	assignedCat.getBrain()->setIdea(1, "Climb the curtain");
+	std::cout << "Original Cat idea: " << originalCat.getBrain()->getIdea(1) << std::endl;
+	std::cout << "Assigned Cat idea: " << assignedCat.getBrain()->getIdea(1) << std::endl;
+	std::cout << "\033[1;32m------\033[0m" << std::endl;
 
 	return 0;
 }

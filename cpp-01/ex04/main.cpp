@@ -6,7 +6,7 @@
 /*   By: ratanaka <ratanaka@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/04 17:05:29 by ratanaka          #+#    #+#             */
-/*   Updated: 2026/02/05 12:59:34 by ratanaka         ###   ########.fr       */
+/*   Updated: 2026/03/02 16:41:15 by ratanaka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,35 +14,18 @@
 #include <string>
 #include <fstream>
 
-//ofstream, ifstream, fstream
-//out,      in,       both
-
-//para abrir um arquivo [filename.open()]
-
-//se eu achar s1 na linha eu devo substituir por s2
-
-//eu preciso ir rescrevendo, 
-//coloco o valor de i como o do final apos a copia
-
 std::string replaceLine(std::string line, std::string s1, std::string s2){
-    std::string newLine;
-        if (s1.empty())
-            return line;
+    if (s1.empty())
+        return (line);
 
-        size_t i = 0;
-        while (i < line.size()){
-            size_t j = 0;
-            while (i + j < line.size() && j < s1.size() && line[i + j] == s1[j])
-                j++;
-            if (j == s1.size()){
-                newLine += s2;
-                i += s1.size();
-            } else {
-                newLine += line[i];
-                i++;
-            }
-        }
-        return newLine;
+    size_t pos = 0;
+    while ((pos = line.find(s1, pos)) != std::string::npos)
+    {
+        line.erase(pos, s1.length());
+        line.insert(pos, s2);
+        pos += s2.length();
+    }
+    return (line);
 }
 
 int main(int argc, char *argv[]){
@@ -56,7 +39,6 @@ int main(int argc, char *argv[]){
     s1 = argv[2];
     s2 = argv[3];
 
-    //Abrindo o arquivo e copiando os dados
     std::ifstream   fileIn;
     std::ofstream   fileOut;
     std::string     line;
@@ -75,6 +57,7 @@ int main(int argc, char *argv[]){
         fileOut.close();
     }else{
         std::cout << "The file cannot be opened" << std::endl;
+        return (1);
     }
     return (0);
 }

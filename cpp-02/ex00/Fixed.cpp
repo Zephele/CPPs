@@ -6,7 +6,7 @@
 /*   By: ratanaka <ratanaka@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/11 10:30:18 by ratanaka          #+#    #+#             */
-/*   Updated: 2026/02/11 14:00:12 by ratanaka         ###   ########.fr       */
+/*   Updated: 2026/03/04 09:53:45 by ratanaka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ Fixed::~Fixed(){
 }
 
 int		Fixed::getRawBits( void ) const{
+	std::cout << "getRawBits member function called" << std::endl;
 	return (this->fix_point);
 }
 

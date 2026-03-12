@@ -6,7 +6,7 @@
 /*   By: ratanaka <ratanaka@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/19 10:59:49 by ratanaka          #+#    #+#             */
-/*   Updated: 2026/02/20 11:18:11 by ratanaka         ###   ########.fr       */
+/*   Updated: 2026/03/09 13:02:32 by ratanaka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,8 @@ ScavTrap::ScavTrap(std::string name) : ClapTrap(name){
 	std::cout << "Constructor ScavTrap called for " << name << std::endl;
 }
 
-ScavTrap::ScavTrap(const ScavTrap& other) : ClapTrap(other){	
+ScavTrap::ScavTrap(const ScavTrap& other) : ClapTrap(other){
+	std::cout << "ScavTrap copy constructor called" << std::endl;
 }
 
 ScavTrap& ScavTrap::operator=(const ScavTrap& other){

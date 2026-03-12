@@ -6,7 +6,7 @@
 /*   By: ratanaka <ratanaka@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/12 16:09:45 by ratanaka          #+#    #+#             */
-/*   Updated: 2026/02/19 09:08:57 by ratanaka         ###   ########.fr       */
+/*   Updated: 2026/03/09 09:28:45 by ratanaka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,4 +90,34 @@ void ClapTrap::beRepaired(unsigned int amount){
 	this->eP--;
 	this->hP += amount;
 	std::cout << "ClapTrap " << this->name << " is repaired for " << amount << " hit points!" << std::endl;
+}
+
+// Getters
+std::string ClapTrap::getName() const {
+	return this->name;
+}
+
+int ClapTrap::getHp() const {
+	return this->hP;
+}
+
+int ClapTrap::getEp() const {
+	return this->eP;
+}
+
+int ClapTrap::getAd() const {
+	return this->aD;
+}
+
+// Setters
+void ClapTrap::setHp(int hp) {
+	this->hP = hp;
+}
+
+void ClapTrap::setEp(int ep) {
+	this->eP = ep;
+}
+
+void ClapTrap::setAd(int ad) {
+	this->aD = ad;
 }

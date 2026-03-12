@@ -6,7 +6,7 @@
 /*   By: ratanaka <ratanaka@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/11 10:30:18 by ratanaka          #+#    #+#             */
-/*   Updated: 2026/02/11 17:12:29 by ratanaka         ###   ########.fr       */
+/*   Updated: 2026/03/05 12:09:32 by ratanaka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,11 +25,13 @@ Fixed::Fixed(const Fixed& clas){
 }
 
 Fixed::Fixed(const	int ci){
+	std::cout << "Int constructor called" << std::endl;
 	const int	fixedValue = ci << this->bits;
 	this->setRawBits(fixedValue);
 }
 
 Fixed::Fixed(const float cf){
+	std::cout << "Float constructor called" << std::endl;
 	const int	fixedValue = roundf(cf * (1 << this->bits));
 	this->setRawBits(fixedValue);
 }

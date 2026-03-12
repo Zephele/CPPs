@@ -6,7 +6,7 @@
 /*   By: ratanaka <ratanaka@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/05 13:10:39 by ratanaka          #+#    #+#             */
-/*   Updated: 2026/02/05 14:57:05 by ratanaka         ###   ########.fr       */
+/*   Updated: 2026/03/03 12:48:25 by ratanaka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ void    Harl::complain( std::string level ){
     for (int i = 0; i < 4; i++){
         if (level == levels[i]){
             (this->*actions[i])();
-            return;
+            return; 
         }
     }
 }
