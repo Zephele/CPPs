@@ -1,5 +1,10 @@
 NAME = bureaucrat
-SRCS = Bureaucrat.cpp main.cpp Form.cpp
+SRCS = Bureaucrat.cpp \
+	AForm.cpp \
+	ShrubberyCreationForm.cpp \
+	RobotomyRequestForm.cpp \
+	PresidentialPardonForm.cpp \
+	main.cpp
 CC = c++
 CFLAGS = -std=c++98 -Wall -Wextra -Werror
 RM = rm -f

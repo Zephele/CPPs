@@ -6,12 +6,12 @@
 /*   By: ratanaka <ratanaka@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/16 12:53:50 by ratanaka          #+#    #+#             */
-/*   Updated: 2026/03/19 14:55:53 by ratanaka         ###   ########.fr       */
+/*   Updated: 2026/03/25 17:35:27 by ratanaka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
-#include "Form.hpp"
+#include "AForm.hpp"
 
 Bureaucrat::Bureaucrat(): name("Carlos"), grade(75){
 	std::cout << "Bureaucrat default constructor called!" << std::endl;
@@ -77,12 +77,22 @@ std::ostream& operator<<(std::ostream& output, const Bureaucrat& clas) {
 	return (output);
 }
 
-void Bureaucrat::signForm(Form& form){
+void Bureaucrat::signForm(AForm& form){
 	try {
 		form.beSigned(*this);
 		std::cout << getName() << " signed " << form.getName() << std::endl;
 	} catch (const std::exception& e) {
 		std::cout << getName() << " couldn't sign " << form.getName()
+			<< " because " << e.what() << std::endl;
+	}
+}
+
+void	Bureaucrat::executeForm(AForm const & form) const{
+	try {
+		form.execute(*this);
+		std::cout << getName() << " executed " << form.getName() << std::endl;
+	} catch (const std::exception& e) {
+		std::cout << getName() << " couldn't execute " << form.getName()
 			<< " because " << e.what() << std::endl;
 	}
 }

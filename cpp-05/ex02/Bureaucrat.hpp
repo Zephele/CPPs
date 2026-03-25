@@ -6,7 +6,7 @@
 /*   By: ratanaka <ratanaka@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/16 12:53:48 by ratanaka          #+#    #+#             */
-/*   Updated: 2026/03/24 09:30:13 by ratanaka         ###   ########.fr       */
+/*   Updated: 2026/03/25 17:40:18 by ratanaka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,12 @@
 #include <iostream>
 #include <string>
 
-class Form;
+class AForm;
 
-#define RESET   "\033[0m"
-#define GREEN   "\033[32m"
-#define BOLD	 "\033[1m"
+#define RESET	"\033[0m"
+#define YELLOW	"\033[38;5;226m"
+#define GREEN	"\033[32m"
+#define BOLD	"\033[1m"
 
 class Bureaucrat{
 
@@ -36,8 +37,8 @@ class Bureaucrat{
 			Bureaucrat& operator=(const Bureaucrat &other);
 			~Bureaucrat();
 		//Incrementos
-      		void	incrementGrade();
-      		void	decrementGrade();
+			void	incrementGrade();
+			void	decrementGrade();
 		//Exception class
 			class GradeTooHighException : public std::exception{
 				public:
@@ -48,7 +49,8 @@ class Bureaucrat{
 					virtual const char* what() const throw();	
 			};
 		
-			void signForm(Form& form);
+			void signForm(AForm& form);
+			void executeForm(AForm const & form) const;
 			
 		//Getters
 			const std::string& getName() const;
