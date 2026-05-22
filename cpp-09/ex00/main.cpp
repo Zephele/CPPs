@@ -6,7 +6,7 @@
 /*   By: ratanaka <ratanaka@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/13 15:00:38 by ratanaka          #+#    #+#             */
-/*   Updated: 2026/05/20 15:07:47 by ratanaka         ###   ########.fr       */
+/*   Updated: 2026/05/20 16:22:47 by ratanaka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,16 +21,21 @@ int main(int argc, char* argv[]){
 	}
 
 	filename = argv[1];
+	bool	header = false;
 	BitcoinExchange btc;
 	std::ifstream fileIn;
 	fileIn.open(filename.c_str());
 	if (fileIn.is_open()){
 		while (std::getline(fileIn, line)){
-			try{
-				btc.validFileLine(line);
-			} catch (const std::exception& e) {
-				std::cout << "Error: " << e.what() << std::endl;
-				continue;
+			if (line.find("date | value") == 0 && header == false)
+				header = true;
+			else {				
+				try{
+					btc.validFileLine(line);
+				} catch (const std::exception& e) {
+					std::cout << "Error: " << e.what() << std::endl;
+					continue;
+				}
 			}
 		}
 	} else {

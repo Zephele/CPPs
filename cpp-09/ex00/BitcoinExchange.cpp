@@ -6,7 +6,7 @@
 /*   By: ratanaka <ratanaka@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/13 15:00:35 by ratanaka          #+#    #+#             */
-/*   Updated: 2026/05/20 15:16:49 by ratanaka         ###   ########.fr       */
+/*   Updated: 2026/05/20 16:31:37 by ratanaka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ std::map<std::string, double> BitcoinExchange::fileConvert(){
 
 	fileIn.open("data.csv");
 	if (fileIn.is_open()){
+		std::getline(fileIn, line);
 		while (std::getline(fileIn, line)){
 			data[line.substr(0, 10)] = atof((line.substr(11, (line.size() - 11))).c_str());
 		}
@@ -73,13 +74,12 @@ int BitcoinExchange::validDateValue(std::string line){
 					throw BadInputException(line);
 			}
 		}
+		else if (i == 10 || i == 12){
+			if (line[i] != ' ')
+				throw BadInputException(line);
+		}
 		else {
-			if ((line[i]) == '-'){
-				throw NotPositiveNumberException();
-			if ((!(isdigit(static_cast<unsigned char>(line[i])))) 
-				&& line[i] != '.')
-					throw BadInputException(line);
-			}
+			break;
 		}
 	}
 	return 0;
@@ -112,33 +112,37 @@ int BitcoinExchange::validData(std::string line){
 	return 0;
 }
 
-static bool intOrDouble(std::string line){
-	std::string lineTemp = line.substr(13, (line.size() - 13));
-	for (size_t i = 0; i < lineTemp.size(); i++){
-		if (lineTemp[i] == '.')
+static bool validNumberToken(const std::string &token){
+	if (token.empty())
+		return false;
+	if (token[0] == '-')
+		return true;
+	bool dotSeen = false;
+	bool digitSeen = false;
+	for (std::size_t i = 0; i < token.size(); ++i){
+		if (token[i] == '.'){
+			if (dotSeen)
+				return false;
+			dotSeen = true;
+		} else if (isdigit(static_cast<unsigned char>(token[i]))){
+			digitSeen = true;
+		} else {
 			return false;
+		}
 	}
-	return true;
+	return digitSeen;
 }
 
 int BitcoinExchange::validValue(std::string line){
-	bool intVal = intOrDouble(line);
-	if (intVal == true){
-		int intValue = atoi((line.substr(13, (line.size() - 13)).c_str()));
-		if (intValue >= 0 && intValue <= 1000)
-			return 0;
-		else
-			throw LargeNumberException();
-		// std::cout << intValue << std::endl;
-	}
-	else{
-		double doubleValue = atof((line.substr(13, (line.size() - 13)).c_str()));
-		if (doubleValue >= 0 && doubleValue <= 1000)
-			return 0;
-		else 
-			throw LargeNumberException();
-		// std::cout << std::fixed << std::setprecision(1) << doubleValue << std::endl;
-	}
+	std::string valueToken = line.substr(13, (line.size() - 13));
+	if (valueToken.size() > 0 && valueToken[0] == '-')
+		throw NotPositiveNumberException();
+	if (!validNumberToken(valueToken))
+		throw BadInputException(line);
+	double value = atof(valueToken.c_str());
+	if (value >= 0 && value <= 1000)
+		return 0;
+	throw LargeNumberException();
 	return 0;
 }
 
@@ -181,8 +185,6 @@ std::string BitcoinExchange::mapKeyValid(std::string date){
 }
 
 void BitcoinExchange::validFileLine(std::string line){
-	if (line.find("date | value") == 0)
-		return ;
 	if (validDateValue(line))
 		return ;
 	if (validData(line))
@@ -196,12 +198,14 @@ void BitcoinExchange::validFileLine(std::string line){
 		std::map<std::string, double>::const_iterator it = this->_data.find(date);
 		if (it == this->_data.end()){
 			std::string key = mapKeyValid(date);
-			if (key == "Error")
+			if (key == "Error"){
 				throw BitcoinDontExistException();
+			} else {
+				value = this->_data[key];
+			}
 		} else {
 			value = it->second;
 		}
-
 		std::string _print = date + " => " + lineVal + " = ";
 		
 		float finalValue = (value * atof((line.substr(13, (line.size() - 13)).c_str())));
