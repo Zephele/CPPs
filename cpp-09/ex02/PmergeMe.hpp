@@ -6,7 +6,7 @@
 /*   By: ratanaka <ratanaka@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/22 04:46:20 by ratanaka          #+#    #+#             */
-/*   Updated: 2026/05/22 09:34:43 by ratanaka         ###   ########.fr       */
+/*   Updated: 2026/05/25 13:41:13 by ratanaka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,8 +36,14 @@ class PmergeMe {
 		void				pairSeparate(std::vector< std::vector<int> >& matriz, std::vector<int> vector);
 		void				sortPairs(std::vector< std::vector<int> >& matriz, bool* oddnum);
 
+		void				fillList(int argc, char* argv[]);
+		std::list<int>		sortList(std::list<int> list);
+
 		std::vector<int> getVecNumns(){
 			return _vecNums;
+		}
+		std::list<int> getListNums(){
+			return _listNums;
 		}
 };
 
